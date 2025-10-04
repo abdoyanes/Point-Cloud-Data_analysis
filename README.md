@@ -49,3 +49,14 @@ chm <- dsm - dtm
 
 # Plot the CHM
 plot(chm, main = "Canopy Height Model (CHM)", szie = 6)
+
+# Calculate return number distribution
+return_table <- table(las$ReturnNumber, las$NumberOfReturns)
+print(return_table)
+
+# Calculate percentage of first returns
+total_points <- npoints(las)
+first_returns <- sum(las$ReturnNumber == 1)
+first_return_percentage <- (first_returns / total_points) * 100
+
+cat("First returns:", first_return_percentage, "%\n")
